@@ -30,3 +30,8 @@ C:\Users\The user\Desktop\הנדסאים\פרקטיקוד\TodoApi\bin\Debug\net6
 C:\Users\The user\Desktop\הנדסאים\פרקטיקוד\TodoApi\bin\Debug\net6.0\Pomelo.EntityFrameworkCore.MySql.dll
 C:\Users\The user\Desktop\הנדסאים\פרקטיקוד\TodoApi\bin\Debug\net6.0\System.Diagnostics.DiagnosticSource.dll
 C:\Users\The user\Desktop\הנדסאים\פרקטיקוד\TodoApi\obj\Debug\net6.0\TodoApi.csproj.CopyComplete
+C:\Users\The user\Desktop\הנדסאים\פרקטיקוד\TodoApi\bin\Debug\net6.0\Microsoft.OpenApi.dll
+C:\Users\The user\Desktop\הנדסאים\פרקטיקוד\TodoApi\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\The user\Desktop\הנדסאים\פרקטיקוד\TodoApi\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\The user\Desktop\הנדסאים\פרקטיקוד\TodoApi\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\The user\Desktop\הנדסאים\פרקטיקוד\TodoApi\obj\Debug\net6.0\TodoApi.MvcApplicationPartsAssemblyInfo.cs

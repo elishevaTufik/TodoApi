@@ -20,10 +20,21 @@ builder.Services.AddDbContext<ToDoDbContext>(options =>
     options.UseMySql(builder.Configuration.GetConnectionString("ToDoDB"), 
     ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("ToDoDB"))));
 
+// הוספת Swagger
+builder.Services.AddEndpointsApiExplorer();  // עבור Swagger
+builder.Services.AddSwaggerGen();  // עבור Swagger
+
 var app = builder.Build();
 
 // שימוש בהגדרת CORS
 app.UseCors("AllowAll");  // מגדיר את מדיניות ה-CORS שתשפיע על כל הנתיבים
+
+// הפעלת Swagger UI
+if (app.Environment.IsDevelopment())  // הצגת Swagger רק בסביבות פיתוח
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();  // מציג את הממשק של Swagger
+}
 
 app.MapGet("/", () => "Hello World!");
 
