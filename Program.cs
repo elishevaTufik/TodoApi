@@ -4,16 +4,7 @@ using TodoApi;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// הוספת קונפיגורציה למסד נתונים (MySQL)
-builder.Services.AddDbContext<ToDoDbContext>(options =>
-    options.UseMySql(builder.Configuration.GetConnectionString("ToDoDB"), 
-    ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("ToDoDB"))));
-
-var app = builder.Build();
-
-
 // הוספת CORS לאפליקציה - מאפשר לכל מקור לפנות ל-API
-
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAll", policy =>
@@ -24,8 +15,14 @@ builder.Services.AddCors(options =>
     });
 });
 
-// שימוש בהגדרת CORS
+// הוספת קונפיגורציה למסד נתונים (MySQL)
+builder.Services.AddDbContext<ToDoDbContext>(options =>
+    options.UseMySql(builder.Configuration.GetConnectionString("ToDoDB"), 
+    ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("ToDoDB"))));
 
+var app = builder.Build();
+
+// שימוש בהגדרת CORS
 app.UseCors("AllowAll");  // מגדיר את מדיניות ה-CORS שתשפיע על כל הנתיבים
 
 app.MapGet("/", () => "Hello World!");
