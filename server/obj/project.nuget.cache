@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "mBWCD8leMaUc4cBwChAkerBF0hCrbyFs17RMA0YO0OH2LWTSe725oqF97TlWxp7sqd3SnCulLfo7G/unMnB4ZA==",
+  "dgSpecHash": "JPp1GZ/JrTXJ4m0XZFok6eeKYYf0WWOQrL73Gs2fDILaWQq5Z7wuoVOey0I2XxGPVSSA+tKOihp2NSJUDdpNnw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\The user\\Desktop\\הנדסאים\\פרקטיקוד\\TodoApi\\TodoApi.csproj",
+  "projectFilePath": "C:\\Users\\The user\\Desktop\\הנדסאים\\פרקטיקוד\\TodoApi\\server\\TodoApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\The user\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\The user\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.16\\microsoft.entityframeworkcore.6.0.16.nupkg.sha512",

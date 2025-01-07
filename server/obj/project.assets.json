@@ -1152,11 +1152,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\The user\\Desktop\\הנדסאים\\פרקטיקוד\\TodoApi\\TodoApi.csproj",
+      "projectUniqueName": "C:\\Users\\The user\\Desktop\\הנדסאים\\פרקטיקוד\\TodoApi\\server\\TodoApi.csproj",
       "projectName": "TodoApi",
-      "projectPath": "C:\\Users\\The user\\Desktop\\הנדסאים\\פרקטיקוד\\TodoApi\\TodoApi.csproj",
+      "projectPath": "C:\\Users\\The user\\Desktop\\הנדסאים\\פרקטיקוד\\TodoApi\\server\\TodoApi.csproj",
       "packagesPath": "C:\\Users\\The user\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\The user\\Desktop\\הנדסאים\\פרקטיקוד\\TodoApi\\obj\\",
+      "outputPath": "C:\\Users\\The user\\Desktop\\הנדסאים\\פרקטיקוד\\TodoApi\\server\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
