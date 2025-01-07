@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // הגדרת כתובת ה-API כברירת מחדל
-axios.defaults.baseURL = "https://localhost:7271";  // שים לב לוודא שה-API רץ על ה-port הזה
+axios.defaults.baseURL = "https://localhost:7224";  
 
 // interceptor לשגיאות - תופס את השגיאות ומרשום ללוג
 axios.interceptors.response.use(
