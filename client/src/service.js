@@ -1,55 +1,53 @@
 import axios from 'axios';
 
-// הגדרת כתובת ה-API כברירת מחדל
-axios.defaults.baseURL = "https://localhost:7224";  
+axios.defaults.baseURL = "https://localhost:7224";
 
-// interceptor לשגיאות - תופס את השגיאות ומרשום ללוג
 axios.interceptors.response.use(
   response => response,
   error => {
     console.error("API error:", error.response ? error.response.data : error.message);
-    return Promise.reject(error);  // מחזיר את השגיאה
+    return Promise.reject(error);
   }
 );
 
 export default {
-  // פונקציה לשליפת כל המשימות
+
   getTasks: async () => {
-    const result = await axios.get("/items");    
+    const result = await axios.get("/todos");
     return result.data;
   },
 
-  // פונקציה להוספת משימה חדשה
   addTask: async (name) => {
     try {
-      const newTask = { name, isComplete: false };  // המשימה החדשה עם שם וסטטוס ברירת מחדל
-      const result = await axios.post("/items", newTask);  // שולח את הנתונים ל-API
-      return result.data;  // מחזיר את התגובה מה-API
-    } catch (error) {
+      const newTask = { name, isComplete: false };
+      const result = await axios.post("/todos", newTask);
+      return result.data;
+    }
+    catch (error) {
       console.error("Failed to add task:", error);
-      throw error;  // אם יש שגיאה, זורק אותה למעלה
+      throw error;
     }
   },
 
-  // פונקציה לעדכון סטטוס השלמה של משימה
   setCompleted: async (id, isComplete) => {
     try {
-      const result = await axios.put(`/items/${id}`, { isComplete });  // שולח עדכון עבור המשימה
+      const result = await axios.put(`/todos/${id}`, { isComplete }); 
       return result.data;  // מחזיר את התגובה מה-API
-    } catch (error) {
+    } 
+    catch (error) {
       console.error("Failed to update task completion:", error);
-      throw error;  // אם יש שגיאה, זורק אותה למעלה
+      throw error;
     }
   },
 
-  // פונקציה למחיקת משימה
   deleteTask: async (id) => {
     try {
-      await axios.delete(`/items/${id}`);  // שולח בקשה למחוק את המשימה
-      return { success: true };  // מחזיר תשובה חיובית
-    } catch (error) {
+      await axios.delete(`/todos/${id}`);  
+      return { success: true };  
+    }
+    catch (error) {
       console.error("Failed to delete task:", error);
-      throw error;  // אם יש שגיאה, זורק אותה למעלה
+      throw error; 
     }
   }
 };

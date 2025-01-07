@@ -9,9 +9,9 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAll", policy =>
     {
-        policy.AllowAnyOrigin()  // מאפשר לכל מקור לפנות ל-API
-              .AllowAnyMethod()  // מאפשר כל שיטה HTTP (GET, POST, PUT, DELETE וכו')
-              .AllowAnyHeader(); // מאפשר כל כותרת (header)
+        policy.AllowAnyOrigin() 
+              .AllowAnyMethod() 
+              .AllowAnyHeader();
     });
 });
 
@@ -27,24 +27,22 @@ builder.Services.AddSwaggerGen();  // עבור Swagger
 var app = builder.Build();
 
 // שימוש בהגדרת CORS
-app.UseCors("AllowAll");  // מגדיר את מדיניות ה-CORS שתשפיע על כל הנתיבים
+app.UseCors("AllowAll");
 
 // הפעלת Swagger UI
-if (app.Environment.IsDevelopment())  // הצגת Swagger רק בסביבות פיתוח
+if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI();  // מציג את הממשק של Swagger
+    app.UseSwaggerUI();
 }
 
-app.MapGet("/", () => "Hello World!");
+// app.MapGet("/", () => "Hello World!");
 
-// הניתוב לשליפת כל המשימות
 app.MapGet("/todos", async (ToDoDbContext dbContext) =>
 {
     return await dbContext.Items.ToListAsync();
 });
 
-// הניתוב להוספת משימה חדשה
 app.MapPost("/todos", async (ToDoDbContext dbContext, Item newItem) =>
 {
     dbContext.Items.Add(newItem);
@@ -52,7 +50,6 @@ app.MapPost("/todos", async (ToDoDbContext dbContext, Item newItem) =>
     return Results.Created($"/todos/{newItem.Id}", newItem);
 });
 
-// הניתוב לעדכון משימה
 app.MapPut("/todos/{id}", async (ToDoDbContext dbContext, int id, Item updatedItem) =>
 {
     var item = await dbContext.Items.FindAsync(id);
@@ -65,7 +62,6 @@ app.MapPut("/todos/{id}", async (ToDoDbContext dbContext, int id, Item updatedIt
     return Results.NoContent();
 });
 
-// הניתוב למחיקת משימה
 app.MapDelete("/todos/{id}", async (ToDoDbContext dbContext, int id) =>
 {
     var item = await dbContext.Items.FindAsync(id);
