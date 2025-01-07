@@ -11,6 +11,23 @@ builder.Services.AddDbContext<ToDoDbContext>(options =>
 
 var app = builder.Build();
 
+
+// הוספת CORS לאפליקציה - מאפשר לכל מקור לפנות ל-API
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", policy =>
+    {
+        policy.AllowAnyOrigin()  // מאפשר לכל מקור לפנות ל-API
+              .AllowAnyMethod()  // מאפשר כל שיטה HTTP (GET, POST, PUT, DELETE וכו')
+              .AllowAnyHeader(); // מאפשר כל כותרת (header)
+    });
+});
+
+// שימוש בהגדרת CORS
+
+app.UseCors("AllowAll");  // מגדיר את מדיניות ה-CORS שתשפיע על כל הנתיבים
+
 app.MapGet("/", () => "Hello World!");
 
 // הניתוב לשליפת כל המשימות
