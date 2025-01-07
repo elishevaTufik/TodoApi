@@ -32,7 +32,7 @@ export default {
   setCompleted: async (id, isComplete) => {
     try {
       const result = await axios.put(`/todos/${id}`, { isComplete }); 
-      return result.data;  // מחזיר את התגובה מה-API
+      return result.data; 
     } 
     catch (error) {
       console.error("Failed to update task completion:", error);
