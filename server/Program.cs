@@ -55,7 +55,6 @@ app.MapPut("/todos/{id}", async (ToDoDbContext dbContext, int id, Item updatedIt
     var item = await dbContext.Items.FindAsync(id);
     if (item is null) return Results.NotFound();
 
-    item.Name = updatedItem.Name;
     item.IsComplete = updatedItem.IsComplete;
 
     await dbContext.SaveChangesAsync();

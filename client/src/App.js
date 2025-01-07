@@ -23,6 +23,7 @@ function App() {
   }
 
   async function updateCompleted(todo, isComplete) {
+    
     await service.setCompleted(todo.id, isComplete);
     await getTodos(); // רענן את רשימת המשימות
   }
