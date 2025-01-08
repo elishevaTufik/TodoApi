@@ -1,6 +1,6 @@
 body {
     font-family: 'Arial', sans-serif;
-    background: linear-gradient(135deg, #ff1493 0%, #8b008b 100%);
+    background: linear-gradient(135deg, #ff1493 0%, #8b008b 100%); /* הרקע נשאר כפי שהיה */
     color: #fff;
     margin: 0;
     padding: 0;
@@ -16,8 +16,8 @@ a {
 }
 
 .todoapp {
-    background: #000; /* שחור */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    background: #ffe4e1; /* ורוד בהיר */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     width: 400px;
     border-radius: 10px;
     overflow: hidden;
@@ -26,7 +26,7 @@ a {
 
 .header {
     background: #ff1493; /* ורוד פוקסיה */
-    color: black;
+    color: white;
     padding: 20px;
     text-align: center;
     border-top-left-radius: 10px;
@@ -44,18 +44,18 @@ a {
     margin-top: 10px;
     padding: 10px;
     font-size: 16px;
-    border: 1px solid #8b008b; /* מסגרת כהה */
+    border: 1px solid #c71585; /* ורוד כהה */
     border-radius: 5px;
     outline: none;
-    background-color: #000; /* שחור */
-    color: #fff;
+    background-color: #ffe4e1; /* ורוד בהיר */
+    color: #c71585; /* ורוד כהה */
 }
 
 .header button {
     margin-top: 10px;
     padding: 10px 15px;
     font-size: 16px;
-    background-color: #8b008b; /* ורוד כהה */
+    background-color: #c71585; /* ורוד כהה */
     border: none;
     border-radius: 5px;
     color: white;
@@ -64,8 +64,8 @@ a {
 }
 
 .header button:hover {
-    background-color: #ff1493; /* ורוד פוקסיה */
-    color: black;
+    background-color: #ff69b4; /* ורוד בהיר יותר */
+    color: white;
 }
 
 .main {
@@ -79,7 +79,7 @@ a {
 }
 
 .todo-list li {
-    background: #8b008b; /* ורוד כהה */
+    background: #c71585; /* ורוד כהה */
     margin-bottom: 10px;
     padding: 10px;
     border-radius: 5px;
@@ -87,13 +87,13 @@ a {
     align-items: center;
     justify-content: space-between;
     color: white;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .todo-list li.completed {
     text-decoration: line-through;
-    background: #ff1493; /* ורוד פוקסיה */
-    color: #000; /* שחור */
+    background: #ff69b4; /* ורוד בהיר יותר */
+    color: white;
 }
 
 .todo-list .view {
@@ -125,6 +125,6 @@ a {
 }
 
 .destroy:hover {
-    background-color: rgba(255, 20, 147, 0.3); /* ורוד פוקסיה חצי שקוף */
+    background-color: rgba(255, 105, 180, 0.3); /* ורוד בהיר חצי שקוף */
     border-radius: 50%;
 }
