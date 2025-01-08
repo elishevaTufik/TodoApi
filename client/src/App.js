@@ -40,7 +40,7 @@ function App() {
   return (
     <section className="todoapp">
       <header className="header">
-        <h1>todos</h1>
+        <h1>My Todo List for today:)</h1>
         <form onSubmit={createTodo}>
           <input
             className="new-todo"
@@ -48,7 +48,7 @@ function App() {
             value={newTodo}
             onChange={(e) => setNewTodo(e.target.value)}
           />
-          <button type="submit">Add Todo</button> {/* כפתור שליחה */}
+          <button type="submit">Add Task</button>
         </form>
       </header>
       <section className="main" style={{ display: "block" }}>
