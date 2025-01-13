@@ -51,11 +51,11 @@ catch (Exception ex)
 app.UseCors("AllowAll");
 
 // הפעלת Swagger UI
-if (app.Environment.IsDevelopment())
-{
+// if (app.Environment.IsDevelopment())
+// {
     app.UseSwagger();
     app.UseSwaggerUI();
-}
+// }
 
 app.MapGet("/", () => "todo api");
 
