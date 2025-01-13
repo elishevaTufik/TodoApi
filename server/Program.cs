@@ -26,6 +26,27 @@ builder.Services.AddSwaggerGen();  // עבור Swagger
 
 var app = builder.Build();
 
+
+// אחרי הוספת DbContext לשירותים
+try
+{
+    using (var scope = app.Services.CreateScope())
+    {
+        var db = scope.ServiceProvider.GetRequiredService<ToDoDbContext>();
+        if (!db.Database.CanConnect())
+        {
+            throw new Exception("Unable to connect to the database.");
+        }
+    }
+    Console.WriteLine("Database connection successful.");
+}
+catch (Exception ex)
+{
+    Console.WriteLine($"Database connection failed: {ex.Message}");
+    return; // מונע מהאפליקציה להמשיך לפעול במקרה של שגיאה
+}
+
+
 // שימוש בהגדרת CORS
 app.UseCors("AllowAll");
 
@@ -45,6 +66,9 @@ app.MapGet("/todos", async (ToDoDbContext dbContext) =>
 
 app.MapPost("/todos", async (ToDoDbContext dbContext, Item newItem) =>
 {
+    if (string.IsNullOrWhiteSpace(newItem.Name))
+    return Results.BadRequest("Task name cannot be empty.");
+
     dbContext.Items.Add(newItem);
     await dbContext.SaveChangesAsync();
     return Results.Created($"/todos/{newItem.Id}", newItem);
