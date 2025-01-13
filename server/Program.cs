@@ -57,7 +57,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-// app.MapGet("/", () => "Hello World!");
+app.MapGet("/", () => "todo api");
 
 app.MapGet("/todos", async (ToDoDbContext dbContext) =>
 {
