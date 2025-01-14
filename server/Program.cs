@@ -16,9 +16,10 @@ builder.Services.AddCors(options =>
 });
 
 // הוספת קונפיגורציה למסד נתונים (MySQL)
+var cs = "mysql://uqnfkvi7djyoujm1:qjtuORnBPRNxeLmMM6yh@bcb2xucstcfwknlpkjnv-mysql.services.clever-cloud.com:3306/bcb2xucstcfwknlpkjnv";
 builder.Services.AddDbContext<ToDoDbContext>(options =>
-    options.UseMySql(builder.Configuration.GetConnectionString("ToDoDB"), 
-    ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("ToDoDB"))));
+    options.UseMySql(cs, 
+    ServerVersion.AutoDetect(cs)));
 
 // הוספת Swagger
 builder.Services.AddEndpointsApiExplorer();  // עבור Swagger
