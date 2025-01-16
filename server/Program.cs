@@ -5,13 +5,24 @@ using TodoApi;
 var builder = WebApplication.CreateBuilder(args);
 
 // הוספת CORS לאפליקציה - מאפשר לכל מקור לפנות ל-API
+// builder.Services.AddCors(options =>
+// {
+//     options.AddPolicy("AllowAll", policy =>
+//     {
+//         policy.AllowAnyOrigin() 
+//               .AllowAnyMethod() 
+//               .AllowAnyHeader();
+//     });
+// });
+
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAll", policy =>
     {
-        policy.AllowAnyOrigin() 
-              .AllowAnyMethod() 
-              .AllowAnyHeader();
+        policy.WithOrigins("https://todoapi-3vzw.onrender.com")
+              .AllowAnyHeader()
+              .AllowAnyMethod();
     });
 });
 
@@ -50,12 +61,9 @@ catch (Exception ex)
 // שימוש בהגדרת CORS
 app.UseCors("AllowAll");
 
-// הפעלת Swagger UI
-// if (app.Environment.IsDevelopment())
-// {
-    app.UseSwagger();
-    app.UseSwaggerUI();
-// }
+app.UseSwagger();
+app.UseSwaggerUI();
+
 
 app.MapGet("/", () => "todo api");
 
