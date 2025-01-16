@@ -15,14 +15,13 @@ var builder = WebApplication.CreateBuilder(args);
 //     });
 // });
 
-
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowAll", policy =>
+    options.AddDefaultPolicy(policy =>
     {
-        policy.WithOrigins("https://todoapi-3vzw.onrender.com")
-              .AllowAnyHeader()
-              .AllowAnyMethod();
+        policy.AllowAnyOrigin()
+              .AllowAnyMethod()
+              .AllowAnyHeader();
     });
 });
 
@@ -59,7 +58,7 @@ catch (Exception ex)
 
 
 // שימוש בהגדרת CORS
-app.UseCors("AllowAll");
+app.UseCors();
 
 app.UseSwagger();
 app.UseSwaggerUI();
